@@ -4,8 +4,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class CoronaGuidelinesController {
 	@Value("${guidelines.oxygenLevels}")
 	private String oxygenLevels;
@@ -18,12 +19,9 @@ public class CoronaGuidelinesController {
 	
 	@GetMapping("/guidelines")
 	public String showCoronaGuidelines(Model model) {
-		model.addAttribute("oxygenLevels", oxygenLevels);
-		model.addAttribute("quarantine", quarantine);
-		model.addAttribute("liters", liters);
-		model.addAttribute("temparatureLevels", temparatureLevels);
 		
-		return "corona";
+		
+		return "guidelines [oxygenLevels: "+oxygenLevels + ", quarantine days: "+ quarantine + ", liters : "+ liters + ", temparatureLevels: " + temparatureLevels + "]";
 	}
 
 }
