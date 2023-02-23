@@ -5,8 +5,8 @@ metadata:
   labels:
     appName: corona
 data:
-  oxygenLevels: 90
-  quarantine: 13
-  liters: 6
-  temparatureLevels: 99 - 101
+  oxygenLevels: "90"
+  quarantine: "13"
+  liters: "6"
+  temparatureLevels: "99 - 101"
       
