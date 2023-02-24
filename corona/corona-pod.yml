@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: coronapod
+  labels:
+    version: "1.0"
+spec:
+  - name: corona
+    image: techbismaya/corona:1.0
+    ports:
+      - name: tomcartport
+        containerPort: 8081
+        protocol: TCP
+    readinessProbe:
+      httpGet:
+        path: /actuator/health/readiness
+        port: 8081
+      intialDelaySeconds: 10
+      timeoutSeconds: 10
+      failureThreshold: 3
+    livenessProbe:
+      httpGet:
+        path: /actuator/health/liveness
+        port: 8081
+      initalDelaySeconds: 10
+      timeoutSeconds: 10
+      failureThreshold: 3
+    resources:
+      requests:
+        cpu: 1
+        memory: 512Mi
+      limits:
+        cpu: 1
+        memory: 1024Mi
+    env:
+
+
