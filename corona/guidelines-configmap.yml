@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: guidelinesconfigmap
+  labels:
+    appName: corona
+data:
+ oxygenLevels: "95"
+  quarantine: "25"
+  liters: "6"
+  temparatureLevels: "101"
